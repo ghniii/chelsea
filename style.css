@@ -1,0 +1,774 @@
+/* Body */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0033a0;
+  color: #000;
+  margin-top: 70px; /* memberi ruang agar konten tidak tertutup navbar */
+}
+
+
+/* Hero */
+.hero {
+  min-height: 80vh;          /* biar tinggi minimal 1 layar, tapi bisa lebih kalau isi panjang */
+  height: auto;               /* biar otomatis menyesuaikan isi */
+  background-color: #0033a0;  /* warna biru khas Chelsea */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 100px 80px;        /* beri ruang atas bawah */
+  color: white;
+  box-sizing: border-box;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.hero a {
+  background: #ffffff;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.hero a:hover {
+  background: #054ee0;
+}
+
+
+/* ===== NAVBAR ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 60px;
+  background-color: white;
+  border-bottom: 1px solid #e0e0e0;
+
+  position: fixed;   /* membuat navbar tetap di posisi tetap */
+  top: 0;            /* menempelkannya di bagian atas layar */
+  left: 0;
+  width: 100%;       /* agar lebarnya penuh */
+  z-index: 1000;     /* supaya tidak tertutup elemen lain */
+}
+
+/* Logo Chelsea */
+.logo img {
+  width: 80px;
+  height: auto;
+}
+
+/* Menu Tengah */
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 80px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #0033a0;
+  font-weight: 700;
+  font-size: 24px;
+  transition: color 0.2s;
+}
+
+.menu a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+/* Menu Aktif */
+.menu a.active {
+  color: #000;
+}
+
+/* Brand Kanan (Nike & Bing) */
+.brand {
+  display: flex;
+  align-items: center;
+}
+
+.brand-logo {
+  width: 120px;   /* ubah ukuran sesuai kebutuhan */
+  height: auto;
+}
+
+
+/* ===== KONTEN BERANDA ===== */
+.content {
+  text-align: center;
+  margin-top: 80px;
+  padding: 20px;
+}
+
+.content h1 {
+  font-size: 32px;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.content p {
+  font-size: 18px;
+  color: #ffffff;
+}
+
+/* ===== BERANDA SECTION ===== */
+.beranda-hero {
+  position: relative;
+  height: 100vh;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 0 80px;
+}
+
+.beranda-hero .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 35, 102, 0.7); /* lapisan biru transparan */
+}
+
+.beranda-text {
+  position: relative;
+  z-index: 2; /* biar teks di atas overlay */
+  max-width: 900px;
+   margin: 0 auto; /* agar tetap di tengah jika lebar dibatasi */
+  text-align: center; /* pastikan teks rata tengah */
+}
+
+.beranda-text h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+
+.beranda-text p {
+  font-size: 18px;
+  line-height: 1.8;
+  font-weight: 500;
+}
+
+.beranda-foto {
+  display: flex;               /* ubah dari grid ke flex */
+  justify-content: center;     /* biar rata tengah */
+  align-items: center;         /* sejajarkan secara vertikal */
+  gap: 10px;                   /* jarak antar foto */
+  margin-top: 20px;            /* jarak dari teks di atas */
+}
+
+.foto-beranda {
+  width: 45%;                  /* dua foto muat dalam satu baris */
+  aspect-ratio: 1 / 1;         /* buat persegi */
+  object-fit: cover;           /* isi penuh tanpa distorsi */
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+@media (max-width: 600px) {
+  .beranda-foto {
+    flex-direction: column; /* ubah ke atas-bawah di layar kecil */
+  }
+
+  .foto-beranda {
+    width: 80%; /* biar pas di layar HP */
+  }
+}
+
+
+
+/* ===== BERITA SECTION ===== */
+.news-section {
+  background-color: #0033a0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  color: white;
+  padding: 80px 0px;
+  text-align: center;
+  min-height: 100vh;
+}
+
+.section-title {
+  text-align: left;
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  background-color: #111727;
+  padding: 12px 30px;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+}
+
+/* Grid berita */
+.news-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* Kartu berita */
+.news-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+  width: 400px;
+  text-align: left;
+  transition: transform 0.3s;
+}
+
+.news-card:hover {
+  transform: scale(1.03);
+}
+
+.news-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-bottom: 3px solid #0070c1;
+}
+
+.news-card p {
+  font-size: 16px;
+  line-height: 1.6;
+  padding: 15px;
+  font-weight: 600;
+  color: #fff;
+}
+
+
+/* ====== JADWAL SECTION ====== */
+.jadwal-section {
+  background-color: #0033a0;
+  color: #fff;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.bulan {
+  text-align: left;
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  background-color: #111727;
+  padding: 12px 30px;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.jadwal-card {
+  background-color: #0e1f42;
+  border: 2px solid #000000;
+  border-radius: 4px;
+  padding: 30px 15px 25px; /* sebelumnya 60px 20px 40px */
+  max-width: 800px;        /* sedikit lebih sempit agar fokus */
+  margin: 0 auto 25px;     /* jarak antar card lebih rapat */
+  position: relative;
+  transition: transform 0.3s;
+}
+
+/* Logo Liga */
+.liga-logo {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.liga-logo img {
+  width: 50px;
+  opacity: 0.9;
+}
+
+/* Info stadion & tanggal */
+.info-atas {
+  display: flex;
+  justify-content: center;
+  gap: 8px;           /* sebelumnya 12px */
+  margin-top: 60px;   /* sebelumnya 80px */
+  font-size: 13px;
+  color: #ccc;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Pertandingan */
+.pertandingan {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  text-align: center;
+  margin-top: 15px;
+  gap: 0px;
+}
+
+.tim {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.tim h3 {
+  font-size: 16px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.tim img {
+  width: 90px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Jam tengah */
+.jam span {
+  background: #000000;
+  color: #fff;
+  padding: 6px 14px; /* sebelumnya 10px 20px */
+  font-weight: 700;
+  font-size: 24px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.jadwal-card:hover {
+  transform: scale(1.04);
+}
+
+@media (max-width: 768px) {
+  .pertandingan {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .info-atas {
+    flex-direction: column;
+    gap: 4px;
+  }
+}
+
+
+/* ====== GALERI SECTION ====== */
+.galeri-section {
+  background-color: #0033a0;  /* biru khas Chelsea */
+  color: white;
+  padding: 80px 0px;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.section-title {
+  text-align: left;
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  background-color: #111727;
+  padding: 12px 30px;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+}
+
+.galeri-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: justify;
+}
+
+.galeri-content img {
+  display: block;           /* ubah dari inline ke block */
+  margin: 0 auto 25px auto; /* auto kiri-kanan agar rata tengah */
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 10px;
+  border: 3px solid #080742b9;
+}
+
+.galeri-content p {
+  font-size: 20px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: #f8f8f8;
+}
+
+
+/* ====== PRESTASI SECTION ====== */
+.prestasi-section {
+  background-color: #0033a0;  /* biru khas Chelsea */
+  color: white;
+  padding: 80px 0px;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.section-title {
+  text-align: left;
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  background-color: #111727;
+  padding: 12px 30px;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+}
+
+/* Layout utama - ubah jadi grid dua kolom */
+.prestasi-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+/* Gambar dua-dua sejajar */
+.prestasi-images {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* dua kolom */
+  gap: 20px;
+  max-width: 800px;
+  width: 100%;
+}
+
+.prestasi-img {
+  width: 100%;
+  height: 250px;          /* tinggi seragam untuk semua foto */
+  object-fit: cover;      /* biar isi foto tetap proporsional tanpa gepeng */
+  border-radius: 10px;
+  border: 3px solid #080742b9;
+}
+
+/* ====== TROFI STYLE ====== */
+.prestasi-text {
+  max-width: 800px;
+  text-align: left;
+}
+
+/* Card untuk tiap kategori trofi */
+.trofi-box {
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 15px;
+  padding: 25px 30px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.trofi-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Judul setiap bagian trofi */
+.trofi-title {
+  color: #ffcc00;
+  font-size: 22px;
+  font-weight: 800;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+  margin-bottom: 10px;
+}
+
+/* Daftar isi trofi */
+.trofi-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.trofi-list li {
+  margin-bottom: 8px;
+  line-height: 1.7;
+  position: relative;
+  padding-left: 30px;
+}
+
+/* Tambahkan ikon trofi di depan tiap item */
+.trofi-list li::before {
+  content: "🏆";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* Garis pemisah antar bagian */
+.section-divider {
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+  margin: 25px 0;
+}
+
+/* Responsif: kalau layar kecil, foto jadi satu kolom */
+@media (max-width: 768px) {
+  .prestasi-images {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ===== PARTNERS SECTION ===== */
+.partners {
+  text-align: center;
+  background-color: #f2f3f5;
+  padding: 60px 20px;
+  border-top: 6px solid #002d72;
+}
+
+.partners h3 {
+  font-style: italic;
+  color: #777;
+  margin-bottom: 30px;
+  font-size: 20px;
+  padding: 12px 30px;
+}
+
+/* Garis pemisah antara principal & official */
+.separator {
+  border: none;
+  height: 6px;
+  background-color: #002d72;
+  margin: 50px 0;
+  width: 100%;
+}
+
+/* Kontainer logo agar semua di tengah */
+.partner-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 50px;              /* jarak antar logo */
+  max-width: 1000px;
+  margin: 0 auto;         /* agar tetap di tengah */
+}
+
+/* Logo individual */
+.partner-logo img {
+  max-height: 60px;
+  width: auto;
+  opacity: 0.8;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.partner-logo img:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Responsif (HP/tablet) */
+@media (max-width: 768px) {
+  .partner-logo {
+    gap: 30px;
+  }
+
+  .partner-logo img {
+    max-height: 45px;
+  }
+}
+
+
+/* ====== FOOTER SECTION ====== */
+.footer {
+  background-color: #0033a0;
+  color: white;
+  padding: 60px 100px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.3); /* garis panjang atas */
+  padding-top: 40px;
+}
+
+.footer-column {
+  flex: 1;
+}
+
+.footer-logo {
+  width: 80px;
+  margin-bottom: 15px;
+}
+
+.footer-column p {
+  line-height: 1.6;
+  font-size: 18px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+  color: #dcdcdc;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: o.3;
+  transition: color 0.3s ease;
+}
+
+.footer-column a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+}
+
+.footer-column ul li a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.footer-column h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: white;
+}
+
+/* Garis pemisah vertikal */
+.footer-divider {
+  width: 1px;
+  background-color: rgba(255, 255, 255, 0.4);
+  height: 240px;
+}
+
+/* Sosial media */
+.social-icons {
+  margin-top: 15px;
+}
+
+.social-icons img {
+  width: 40px;
+  padding-top: 10px;
+  margin-right: 10px;
+  transition: transform 0.3s;
+}
+
+.social-icons img:hover {
+  transform: scale(1.1);
+}
+
+/* App store */
+.app-links img {
+  width: 130px;
+  margin-right: 10px;
+  margin-top: 15px;
+}
+
+
+
+/* Responsif */
+@media (max-width: 900px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-divider {
+    display: none;
+  }
+  .footer-column {
+    text-align: center;
+    padding: 20px 0;
+  }
+  .social-icons, .app-links {
+    justify-content: center;
+  }
+}
+
+
+/* ====== RESPONSIVE NAVBAR (UNTUK HP) ====== */
+
+/* Tombol menu (ikon ☰) */
+.menu-icon {
+  display: none;
+  font-size: 30px;
+  color: #0033a0;
+  cursor: pointer;
+}
+
+/* Sembunyikan checkbox bawaan */
+#menu-toggle {
+  display: none;
+}
+
+/* ======= TAMPILAN MOBILE ======= */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px 20px;
+  }
+
+  /* Sembunyikan menu di awal */
+  .menu {
+    display: none;
+    position: absolute;
+    top: 70px; /* di bawah navbar */
+    left: 0;
+    width: 100%;
+    background-color: white;
+    flex-direction: column;
+    text-align: center;
+    gap: 0;
+    border-top: 1px solid #ddd;
+    z-index: 999;
+  }
+
+  /* Tampilkan menu saat tombol diklik */
+  #menu-toggle:checked ~ .menu {
+    display: flex;
+  }
+
+  /* Gaya untuk item menu di HP */
+  .menu li {
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  .menu a {
+    font-size: 20px;
+    color: #0033a0;
+  }
+
+  /* Tampilkan ikon hamburger */
+  .menu-icon {
+    display: block;
+  }
+
+  /* Sembunyikan brand kanan di HP */
+  .brand {
+    display: none;
+  }
+}

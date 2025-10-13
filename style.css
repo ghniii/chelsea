@@ -411,6 +411,16 @@ body {
   color: #f8f8f8;
 }
 
+@media (max-width: 600px) {
+  .galeri-section {
+    flex-direction: column; /* ubah ke atas-bawah di layar kecil */
+  }
+
+  .galeri-content {
+    width: 80%; /* biar pas di layar HP */
+  }
+}
+
 
 /* ====== PRESTASI SECTION ====== */
 .prestasi-section {
@@ -772,3 +782,4 @@ body {
     display: none;
   }
 }
+
